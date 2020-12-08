@@ -1,10 +1,18 @@
-- **row_id** : (int64) ID code for the row.
-- **timestamp** : (int64) the time in milliseconds between this user interaction and the first event completion from that user.
-- **user_id** : (int32) ID code for the user.
-- **content_id** : (int16) ID code for the user interaction
-- **content_type_id** : (int8) 0 if the event was a question being posed to the user, 1 if the event was the user watching a lecture.
-- **task_container_id** : (int16) Id code for the batch of questions or lectures. For example, a user might see three questions in a row before seeing the explanations for any of them. Those three would all share a task_container_id.
-- **user_answer** : (int8) the user's answer to the question, if any. Read -1 as null, for lectures.
-- **answered_correctly** : (int8) if the user responded correctly. Read -1 as null, for lectures.
-- **prior_question_elapsed_time** : (float32) The average time in milliseconds it took a user to answer each question in the previous question bundle, ignoring any lectures in between. Is null for a user's first question bundle or lecture. Note that the time is the average time a user took to solve each question in the previous bundle.
-- **prior_question_had_explanation** : (bool) Whether or not the user saw an explanation and the correct response(s) after answering the previous question bundle, ignoring any lectures in between. The value is shared across a single question bundle, and is null for a user's first question bundle or lecture. Typically the first several questions a user sees were part of an onboarding diagnostic test where they did not get any feedback.
+# Prédiction de l'exactitude d'un réponse à une question
+Plus d'informations sur la compétition Kaggle [Riiid! Answer Correctness Prediction](https://www.kaggle.com/c/riiid-test-answer-prediction/)
+
+## Description
+En 2018, 260 millions d'enfants n'étaient pas scolarisés. En même temps, plus de la moitié de ces jeunes élèves ne répondaient pas aux normes minimales de lecture et de mathématiques. L'éducation était déjà dans une situation difficile lorsque le COVID-19 a forcé la plupart des pays à fermer temporairement des écoles. Les écarts d'équité dans chaque pays pourraient se creuser. Le système éducatif actuel doit être repenser, en termes d'assiduité, d'engagement et d'attention individualisée.
+
+# Choix du modèle
+LGBM
+Alternative : XGBoost, Saint+
+
+## Installation en local
+Requirement :
+pandas
+numpy
+datatable
+sklearn
+lgbm
+riideducation
