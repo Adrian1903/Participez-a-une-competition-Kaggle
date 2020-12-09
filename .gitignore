@@ -12,3 +12,5 @@ other
 *.jpg
 dev/tuto
 *.csv
+*.7z
+*.log
